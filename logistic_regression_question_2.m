@@ -1,0 +1,16 @@
+clc;
+clear all;
+x=[5 7 9 11 13 15];
+y=[1.70 2.40 2.80 3.40 3.70 4.40];
+n=length(x);
+mx=sum(x)/n;
+my=sum(y)/n;
+sqx=sum(x.*x);
+smxy=sum(x.*y);
+b=(n*smxy-sum(x)*sum(y))/(n*sqx-(sum(x)*sum(x)));
+x_value = [-20:1:20];
+y_val=my+b.*(x_value-mx);
+f=1./(1+exp(-y_val));
+figure,plot(x_val,f,'*g');
+title("Logistic Regression");
+grid on;
